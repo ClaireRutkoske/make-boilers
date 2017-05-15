@@ -14,18 +14,20 @@ main: $(SRC)/*html
 	mkdir -p $(OUT)
 	cp $(SRC)/*html $(OUT)
 	
-images: $(SRC)/assets/images/.
+images: $(SRC)/assets/images/*
 	mkdir -p $(OUT)/$(DIST)/images
 	cp -a $(SRC)/assets/images/* $(OUT)/$(DIST)/images
 	
-scripts: $(SRC)/assets/scripts/.
+scripts: $(SRC)/assets/scripts/* $(SRC)/assets/scripts/panda/*
 	mkdir -p $(OUT)/$(DIST)/scripts
+	mkdir -p $(OUT)/$(DIST)/scripts/panda
+	cp -a $(SRC)/assets/scripts/panda/* $(OUT)/$(DIST)/scripts/panda
 	cp -a $(SRC)/assets/scripts/* $(OUT)/$(DIST)/scripts
 	
-styles: $(SRC)/assets/styles/.
+styles: $(SRC)/assets/styles/*
 	mkdir -p $(OUT)/$(DIST)/styles
 	cp -a $(SRC)/assets/styles/* $(OUT)/$(DIST)/styles
 	
-# Watch the filesystem and recompile on file modification
+# 'Watch' the filesystem and recompile on file modification
 watch:
 	while true; do make all; sleep 2; done
