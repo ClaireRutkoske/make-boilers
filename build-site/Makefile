@@ -28,6 +28,6 @@ styles: $(SRC)/assets/styles/*
 	mkdir -p $(OUT)/$(DIST)/styles
 	cp -a $(SRC)/assets/styles/* $(OUT)/$(DIST)/styles
 	
-# 'Watch' the filesystem and recompile on file modification
+# 'Watch' the filesystem make all every 2 seconds
 watch:
 	while true; do make all; sleep 2; done
